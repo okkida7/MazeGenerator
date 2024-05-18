@@ -8,8 +8,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cb64c30-ecd2-4ea4-81ee-bb0cb04b1902" name="Changes" comment="Added folder 'saves'">
+    <list default="true" id="6cb64c30-ecd2-4ea4-81ee-bb0cb04b1902" name="Changes" comment="merge">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +108,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1716064578136</updated>
-      <workItem from="1716064579126" duration="6397000" />
+      <workItem from="1716064579126" duration="6966000" />
     </task>
     <task id="LOCAL-00001" summary="Fix warnings">
       <option name="closed" value="true" />
@@ -133,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716069772315</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="merge">
+      <option name="closed" value="true" />
+      <created>1716071210867</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1716071210867</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -151,6 +160,7 @@
     <MESSAGE value="Fix warnings" />
     <MESSAGE value="Added comments" />
     <MESSAGE value="Added folder 'saves'" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added folder 'saves'" />
+    <MESSAGE value="merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge" />
   </component>
 </project>
