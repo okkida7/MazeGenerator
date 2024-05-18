@@ -13,8 +13,8 @@ public class MazeGenerator implements Serializable{
     @Serial
     private static final long serialVersionUID = 1L;
     private int mazeWidth, mazeHeight;
-    private transient MazeCell[][] maze; // Note this is transient
-    private final transient CellRender[][] cellRender; // This should also be transient
+    private transient MazeCell[][] maze;
+    private final transient CellRender[][] cellRender;
     private final Random random = new Random();
     private CellRender endPoint;
     private int maxDepth = 0;
@@ -145,15 +145,6 @@ public class MazeGenerator implements Serializable{
     }
 
 
-    public void setHeight(int newHeight) {
-        this.mazeHeight = newHeight;
-    }
-
-    public void setWidth(int newWidth) {
-        this.mazeWidth = newWidth;
-    }
-
-
     public List<MazeGenerator.Direction> getOpenDirections() {
         List<MazeGenerator.Direction> allDirections;
         allDirections = openDirections;
@@ -185,7 +176,4 @@ public class MazeGenerator implements Serializable{
     public int getCountValue2() {
         return countValue2;
     }
-
-
-
 }

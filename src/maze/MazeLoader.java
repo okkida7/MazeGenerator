@@ -14,7 +14,6 @@ public class MazeLoader implements Serializable{
     private final List<MazeGenerator.Direction> directions1;
     private final List<Integer> countValue1;
     private final int countValue2;
-    //private Set<MazeGenerator.Direction> oppositeDirections;
     private MazeCell[][] maze;
     private CellRender[][] drawMaze;
     public CellRender endPoint;
@@ -40,15 +39,12 @@ public class MazeLoader implements Serializable{
         this.directions1 = newDirections1;
         this.countValue1 = countValue1;
         this.countValue2 = countValue2;
-
-        //this.oppositeDirections = oppositeDirections;
     }
 
     public void generateMaze(Pane pane) {
         int width = mazeWidth;
         int height = mazeHeight;
         initializeMaze(width, height, pane);
-        //System.out.println(countValue);
     }
 
     private void initializeMaze(int width, int height, Pane pane) {
@@ -74,12 +70,12 @@ public class MazeLoader implements Serializable{
         if(countValue2 == count && isEdgeCell(x,y)) {
             CellRender endpoint = drawMaze[x][y];
             endpoint.removeWallsForExitPoint(mazeWidth, mazeHeight, pane);
-            getX = maze[x][y].getX();// Set the exit at the farthest edge point
+            getX = maze[x][y].getX();
             getY = maze[x][y].getY();
             matchEndPoint = getX * width + getY;
         }
         for (int i = 0; i < countValue.size(); i++) {
-            if (count == countValue.get(i)) {  // Process only if first hasn't been found yet
+            if (count == countValue.get(i)) {
                 MazeGenerator.Direction dir = directions.get(i);
                 drawMaze[x][y].removeWall(dir, pane);
             }
@@ -96,12 +92,12 @@ public class MazeLoader implements Serializable{
         if(countValue2 == count && isEdgeCell(x,y)) {
             CellRender endpoint = drawMaze[x][y];
             endpoint.removeWallsForExitPoint(mazeWidth, mazeHeight, pane);
-            getX = maze[x][y].getX();// Set the exit at the farthest edge point
+            getX = maze[x][y].getX();
             getY = maze[x][y].getY();
             matchEndPoint = getX * width + getY;
         }
         for (int j = 0; j < countValue1.size(); j++) {
-            if (count == countValue1.get(j)) {  // Process only if first has been found
+            if (count == countValue1.get(j)) {
                 MazeGenerator.Direction dir = directions1.get(j);
                 drawMaze[x][y].removeWall(dir, pane);
             }

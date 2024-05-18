@@ -4,8 +4,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+// Class to handle rendering of Cell object in the Maze
 public class CellRender {
-
+    // Walls of the cell represented as rectangles
     Rectangle wallTop;
     Rectangle wallBottom;
     Rectangle wallLeft;
@@ -13,7 +14,7 @@ public class CellRender {
     public int x, y, size;
     private boolean visited = false;
 
-
+    // Constructor: Builds walls for each cell
     public CellRender(int x, int y, int size, Pane pane) {
         this.x = x;
         this.y = y;
@@ -32,6 +33,7 @@ public class CellRender {
         addWallsToPane(pane);
     }
 
+    // Handle removal of walls based on supplied direction
     public void removeWall(MazeGenerator.Direction direction, Pane pane) {
         switch (direction) {
             case UP:
@@ -53,8 +55,8 @@ public class CellRender {
         }
     }
 
+    // Remove the walls for the exit point of the maze
     public void removeWallsForExitPoint(int mazeWidth, int mazeHeight, Pane pane) {
-        // Check position and remove the appropriate wall
         if (y == 0) { // Top edge
             wallTop.setVisible(false);
             pane.getChildren().remove(wallTop);
@@ -70,11 +72,12 @@ public class CellRender {
         }
     }
 
+    // Adds walls to pane (visually represents walls)
     public void addWallsToPane(Pane pane) {
         pane.getChildren().addAll(wallTop, wallBottom, wallLeft, wallRight);
     }
 
-
+    // Check if a wall exists in a given direction
     public boolean hasWall(MazeGenerator.Direction direction) {
         return !switch (direction) {
             case UP -> wallTop.isVisible();

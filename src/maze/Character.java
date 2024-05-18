@@ -3,6 +3,7 @@ package maze;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
+// Character class represents a character in the maze
 public class Character {
     private final Rectangle graphic;
     private int x, y; // Current positions
@@ -26,6 +27,7 @@ public class Character {
         this.mazeCell = mazeCell;
     }
 
+    // Checks and updates the win condition
     public void winCondition(Text text) {
         if(mazeGenerator != null) {
             if((x * width + y) == mazeGenerator.getCountValue2()) {

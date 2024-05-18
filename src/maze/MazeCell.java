@@ -30,11 +30,9 @@ public class MazeCell implements Serializable{
         return cellRenderer;
     }
 
-
     public void addOpenDirection(MazeGenerator.Direction direction) {
         openDirections.add(direction);
     }
-
 
     public Set<MazeGenerator.Direction> getOpenDirections() {
         return new LinkedHashSet<>(openDirections);

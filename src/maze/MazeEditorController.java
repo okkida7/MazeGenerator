@@ -33,10 +33,6 @@ public class MazeEditorController {
         sizeSlider.valueProperty().addListener((obs, oldVal, newVal) -> updateMazeSize(oldVal.intValue(), newVal.intValue()));
     }
 
-    public Pane getPane() {
-        return mazePane;
-    }
-
     private void generateMaze() {
         mazePane = new Pane();
         if(mazeGenerator == null) {
@@ -51,18 +47,20 @@ public class MazeEditorController {
 
             Character player = new Character((int) sizeSlider.getValue(), mazeLoader, mazeGenerator, 0, 0, cellSize, maze, mazeCell);
 
-
-            mazePane.setPrefSize(mazeWidth, mazeHeight);
-            mazePane.setLayoutX((double) (800 - mazeWidth) / 2);
-            mazePane.setLayoutY((double) (800 - mazeHeight) / 2);
-            mazePane.getChildren().add(player.getGraphic());
-            mazeDisplayPane.getChildren().add(mazePane);
-            mazeDisplayPane.setFocusTraversable(true);
-            mazeDisplayPane.setOnKeyPressed(e -> handleKeyPress(e, player, maze));
-            Platform.runLater(mazeDisplayPane::requestFocus);
+            paneLayout(mazeWidth, mazeHeight, player);
         }
     }
 
+    private void paneLayout(int mazeWidth, int mazeHeight, Character player) {
+        mazePane.setPrefSize(mazeWidth, mazeHeight);
+        mazePane.setLayoutX((double) (800 - mazeWidth) / 2);
+        mazePane.setLayoutY((double) (800 - mazeHeight) / 2);
+        mazePane.getChildren().add(player.getGraphic());
+        mazeDisplayPane.getChildren().add(mazePane);
+        mazeDisplayPane.setFocusTraversable(true);
+        mazeDisplayPane.setOnKeyPressed(e -> handleKeyPress(e, player));
+        Platform.runLater(mazeDisplayPane::requestFocus);
+    }
 
 
     private void clearMaze() {
@@ -79,12 +77,10 @@ public class MazeEditorController {
             mazeGenerator.setSize(newSize, newSize);
         } else if(mazeLoader != null){
             mazeLoader.setSize(newSize, newSize);
-        } else {
         }
-
     }
 
-    private void handleKeyPress(KeyEvent e, Character player, MazeCell[][] maze) {
+    private void handleKeyPress(KeyEvent e, Character player) {
         switch (e.getCode()) {
             case UP:
                 player.moveUp();
@@ -162,14 +158,7 @@ public class MazeEditorController {
             CellRender[][] mazeCell = mazeLoader.getMazeCell();
             Character player = new Character(width, mazeLoader, mazeGenerator, 0, 0, cellSize, maze, mazeCell);
 
-            mazePane.setPrefSize(mazeWidth, mazeHeight);
-            mazePane.setLayoutX((double) (800 - mazeWidth) / 2);
-            mazePane.setLayoutY((double) (800 - mazeHeight) / 2);
-            mazePane.getChildren().add(player.getGraphic());
-            mazeDisplayPane.getChildren().add(mazePane);
-            mazeDisplayPane.setFocusTraversable(true);
-            mazeDisplayPane.setOnKeyPressed(e -> handleKeyPress(e, player, maze));
-            Platform.runLater(() -> mazeDisplayPane.requestFocus());
+            paneLayout(mazeWidth, mazeHeight, player);
         }
     }
 

@@ -59,7 +59,7 @@ public class MazeApp extends Application {
         root.setTop(menuBar);
         root.setCenter(vbox);
 
-        // Setup the Scene
+        // Set up the Scene
         Scene scene = new Scene(root, 800, 800);
         primaryStage.setTitle("Maze Generator");
         primaryStage.setScene(scene);
